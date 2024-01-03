@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
+
 // const userAuth = require('../middleware/userAuth')
 // const {userErrorHandler} = require('../middleware/error')
 
@@ -13,7 +14,8 @@ router.get('/',(req,res)=>{
         
     })
 })
-router.post('/signup',async(req,res)=>{    
+
+router.post('/api/auth/signup',async(req,res)=>{    
     try {
         const user = new User({
             name:req.body.name,
@@ -46,6 +48,7 @@ router.post('/signup',async(req,res)=>{
         })
     }
 })
+
 router.post('/login',async(req,res)=>{
 
     try {
@@ -69,13 +72,13 @@ router.post('/login',async(req,res)=>{
     }
 })
 
-router.get('/user/me',userAuth,async(req,res)=>{
-    res.json({
-        status: 'success',
-        isAutheticated: true,
-        user:req.user
-    })
-})
+// router.get('/user/me',userAuth,async(req,res)=>{
+//     res.json({
+//         status: 'success',
+//         isAutheticated: true,
+//         user:req.user
+//     })
+// })
 
 
 module.exports = router

@@ -6,7 +6,7 @@ const userRouter = require("./src/routes/user")
 const PORT = process.env.PORT || 3001
 
 const app = express()
-
+// app.use(exp)
 
 app.use(userRouter)
 app.listen(PORT,()=>{
